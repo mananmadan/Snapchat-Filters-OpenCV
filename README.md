@@ -22,4 +22,10 @@ Vedio Output
 - ![output](output/output.gif)
 
 ## TODO
-- Add more filters!
+- Add more filters! 
+ - HAT
+  - first measure the distance of bottom of the hat from the bottom of the image
+  - in vedio,scale down the image using the length b/w (outer left/right eyebrow end)
+  - then using the scale coeffiecient on the y axis find the value of the bottom point in the image
+  - do calculation on the y axis as to where to place the hat image , so that the bottom point in the image , lies at the top of head
+  - then do simple masking operation to get the output image

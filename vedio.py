@@ -34,7 +34,7 @@ vid = cv2.VideoCapture(0)
 while True:
     ## Process the frame
     ret,frame = vid.read()
-    img = frame
+    img = frame ## 480 640 3
     default_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
@@ -54,8 +54,8 @@ while True:
         ## get landmarks
         label_point = detect_points(just_face)
 
-        filtered_points = filtering(label_point,"gogles")
-        just_color_face = apply(just_color_face,filtered_points,"gogles")
+        filtered_points = filtering(label_point,"hat")
+        just_color_face = apply(just_color_face,filtered_points,"hat")
 
         ## resize and fit back the isolated face in original image
         just_color_face = cv2.resize(just_color_face,(h,w))
