@@ -7,7 +7,7 @@ An attempt to create and understand the working of snapchat filters using facial
 - Image --> CNN --> Output Co-ordinates of the landmarks
 - Then use these co-ordinates to place filters on the image 
 
-## Dataset for face detection
+## Dataset for Face Detection
 - [Data](https://www.kaggle.com/drgilermo/face-images-with-marked-landmark-points)
 
 ## To Run
