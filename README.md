@@ -23,7 +23,8 @@ Vedio Output
 ## TODO
 - See how can you instruct the type of filter during python file runtime!
     -```python vedio.py --filter -a -b -c ``` etc. type!
-- Test with adding filter using image instead of creating own filters
+- Test with adding filter using image (Gogles!) instead of creating own filters
+- Make the code more modular!
 - Add Images of different types of Glasses (Like lenskart!)
 - Add filters for mouth also! (using the lip tracking mechanism!)
 - Make a youtube vedio for it!
