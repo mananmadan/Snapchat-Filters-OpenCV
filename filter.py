@@ -1,7 +1,7 @@
 import numpy as np
 import cv2 
 import matplotlib.pyplot as plt
-moustache = cv2.imread('experimental/moustache-2.jpg')
+moustache = cv2.imread('experimental/moustache.jpg')
 def filtering(label_points,types):
     if types == 'gogles':
         centre_left = (int((label_points[0][0] + label_points[0][6]) / 2) , int((label_points[0][1] + label_points[0][7]) / 2))
@@ -41,7 +41,7 @@ def apply(img,points,types):
         for i in range(0,min(29,96-y)):
             for j in range(0,90):
                b,g,r = moustache[i][j][:]
-               if b<235 or g<235 or r<235:
+               if b<215 or g<215 or r<215:
                  try:
                    img[y+i][j+(x-45)][:] = r,g,b 
                  except:
