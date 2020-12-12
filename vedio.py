@@ -28,7 +28,7 @@ def detect_points(face_img):
 # Load haarcascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 dimensions = (96, 96)
-
+types = "moustache"
 ## declare vid object
 vid = cv2.VideoCapture(0)
 while True:
@@ -54,13 +54,14 @@ while True:
         ## get landmarks
         label_point = detect_points(just_face)
 
-        filtered_points = filtering(label_point,"hat")
-        just_color_face = apply(just_color_face,filtered_points,"hat")
+        filtered_points = filtering(label_point,"moustache")
+        just_color_face = apply(just_color_face,filtered_points,"moustache")
+        filtered_points = filtering(label_point,"gogles")
+        just_color_face = apply(just_color_face,filtered_points,"gogles")
 
         ## resize and fit back the isolated face in original image
         just_color_face = cv2.resize(just_color_face,(h,w))
-        img[y:y+h,x:x+h] = just_color_face
-    
+        img[y:y+h,x:x+w] = just_color_face
         
         # Display the resulting frame 
         cv2.imshow('frame', img) 
