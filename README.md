@@ -22,7 +22,7 @@ Vedio Output
 
 ## TODO
 - See how can you instruct the type of filter during python file runtime!
-    -```python vedio.py --filter -a -b -c ``` etc. type!
+    - ```python vedio.py --filter -a -b -c ``` etc. type!
 - Test with adding filter using image (Gogles!) instead of creating own filters
 - Make the code more modular!
 - Add Images of different types of Glasses (Like lenskart!)
