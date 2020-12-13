@@ -53,7 +53,8 @@ while True:
         
         ## get landmarks
         label_point = detect_points(just_face)
-
+        
+        ##apply all the filters you want
         filtered_points = filtering(label_point,"glasses")
         just_color_face = apply(just_color_face,filtered_points,"glasses")
         filtered_points = filtering(label_point,"moustache")

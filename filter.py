@@ -1,8 +1,12 @@
 import numpy as np
 import cv2 
 import matplotlib.pyplot as plt
-glasses = cv2.imread('experimental/glasses.jpg')
-moustache = cv2.imread('experimental/moustache-2.jpg')
+
+## load the filters
+glasses = cv2.imread('filters/glasses-2.jpg')
+moustache = cv2.imread('filters/moustache-2.jpg')
+
+## dictionary for the landmarks
 mydict = {}
 name_list = [
 'left_eye_center_x',
@@ -36,11 +40,12 @@ name_list = [
 'mouth_center_bottom_lip_x',
 'mouth_center_bottom_lip_y']
 
+## load the dict
 def make_dict(label_points):
     for i in range(0,len(name_list)):
       mydict[name_list[i]] = label_points[0][i]
   
-
+##get the label points you want for each of the cases
 def filtering(label_points,types):
     make_dict(label_points)
     if types == 'glasses':
@@ -61,17 +66,16 @@ def filtering(label_points,types):
         ## we want the hat to be place in the region at the height of eyebrows + 10
         ll = [label_points[0][20],label_points[0][21]]
         return ll
-          
+
+## apply filters to the image using crazy maths!
 def apply(img,points,types):
     if types == 'glasses':
         global glasses
-        #print("in glasses")
         x1,y1 = points[0]
         x2,y2 = points[1]
         x1 = int(x1)
         x2 = int(x2)
         y = int((y1+y2)/2)
-        #print(x1,x2,y)
         y = y-5
         temp = cv2.resize(glasses,((x1-x2)+10,30))
         for i in range(0,temp.shape[0]):
@@ -106,47 +110,4 @@ def apply(img,points,types):
                    img[y+i][j+(x-45)][:] = r,g,b 
                  except:
                    print("out of bounds")
-
-
-    '''
-    if types == 'hat':
-        he = int(points[0])
-        nx = int(points[1])
-        x  = 200
-        y = 400
-        h = int(img.shape[1])
-        w = int(img.shape[0])
-        hat_img = cv2.imread('filters/hat.jpg')
-        #img_o = img[0:w,he:h,:]
-        hat_img = cv2.resize(hat_img,(w,h))
-        print(x-nx,x+(w-nx),y-(h-he),y)
-        img_h = hat_img[x-nx:x+(w-nx),y-(h-he):y,:]
-        cv2.imshow('wind',img_h)
-        cv2.waitkey(0)
-        for i in range(0,img_h.shape[0]):
-            for j in range(0,img_h.shape[1]):
-               r,g,b = img_h[i][j][:]
-               if r<235 or g<235 or b<235:
-                 try:
-                   img[i][j+he][:] = r,g,b
-                 except:
-                   print("out of bounds")
-    '''
-    ''' 
-    if types == 'hat':
-         x = points[0] / 450
-         image_width = img.shape[0]
-         image_height = int(hat_img.shape[0] * x)
-         hat_img = cv2.resize(hat_img,(int(image_width),int(image_height)))
-         
-         for i in range(0,hat_img.shape[0]):
-             for j in range(0,hat_img.shape[1]):
-                 r,g,b = hat_img[i][j][:]
-                 if r<235 or g<235 or b<235:
-                   try:
-                    img[i][j][:] = (r,g,b)
-                   except:
-                     print("out of bounds")
-        
-    '''
-    return img
+   return img
