@@ -54,10 +54,10 @@ while True:
         ## get landmarks
         label_point = detect_points(just_face)
 
+        filtered_points = filtering(label_point,"glasses")
+        just_color_face = apply(just_color_face,filtered_points,"glasses")
         filtered_points = filtering(label_point,"moustache")
         just_color_face = apply(just_color_face,filtered_points,"moustache")
-        filtered_points = filtering(label_point,"gogles")
-        just_color_face = apply(just_color_face,filtered_points,"gogles")
 
         ## resize and fit back the isolated face in original image
         just_color_face = cv2.resize(just_color_face,(h,w))
