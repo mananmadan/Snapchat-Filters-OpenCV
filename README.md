@@ -23,7 +23,7 @@ Vedio Output
 - ![output](output/output.gif)
 
 ## Technologies
-![opencv](opencv.png = 250*250) ![tf-keras](tf-keras.jpeg =250*250)
+![opencv](opencv.png){:height="50%" width="50%"} ![tf-keras](tf-keras.jpeg){:height="50%" width="50%"}
 ## TODO
 - Add filters for mouth also! (using the lip tracking mechanism!)
 - Make a youtube vedio for it!
