@@ -1,6 +1,6 @@
 ## SnapChat Filters Using OpenCV
 An attempt to create and understand the working of snapchat filters using facial landmark tracking
-- Also chekout my work on facial landmark tracking [Facial-Keypoints](https://github.com/mananmadan/Facial-Keypoints)
+- Also checkout my work on facial landmark tracking [Facial-Keypoints](https://github.com/mananmadan/Facial-Keypoints)
 
 
 ## Main Idea
@@ -13,7 +13,9 @@ An attempt to create and understand the working of snapchat filters using facial
 ## To Run
 - Since the data set only contain image of size 96,96,1
 - Hence haar-cascade is used to first isolate the face and that is passed into model
-- ```vedio.py``` runs the network on vedio from web cam and uptill now only contains the gogles filter.
+- The model detects the landmarks and passes it to ```filter.py``` which will then apply the filter to the image
+- Then image processing is done to re-adjust the image in the vedio
+- ```vedio.py``` runs the network on vedio
 
 
 ## Output
@@ -21,11 +23,6 @@ Vedio Output
 - ![output](output/output.gif)
 
 ## TODO
-- See how can you instruct the type of filter during python file runtime!
-    - ```python vedio.py --filter -a -b -c ``` etc. type!
-- Test with adding filter using image (Gogles!) instead of creating own filters
-- Make the code more modular!
-- Add Images of different types of Glasses (Like lenskart!)
 - Add filters for mouth also! (using the lip tracking mechanism!)
 - Make a youtube vedio for it!
 - Make a flask web app
