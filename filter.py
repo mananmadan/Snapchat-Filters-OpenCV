@@ -110,4 +110,4 @@ def apply(img,points,types):
                    img[y+i][j+(x-45)][:] = r,g,b 
                  except:
                    print("out of bounds")
-   return img
+    return img

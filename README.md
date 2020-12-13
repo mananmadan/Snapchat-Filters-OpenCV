@@ -22,6 +22,9 @@ An attempt to create and understand the working of snapchat filters using facial
 Vedio Output
 - ![output](output/output.gif)
 
+## Technologies
+- ![opencv](opencv.png)
+- ![tf-keras](tf-keras.jpeg)
 ## TODO
 - Add filters for mouth also! (using the lip tracking mechanism!)
 - Make a youtube vedio for it!

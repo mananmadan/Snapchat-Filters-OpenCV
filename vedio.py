@@ -1,7 +1,5 @@
-from PIL import Image
 import numpy as np
 from matplotlib import pyplot as plt
-import time
 import cv2 
 import os
 import numpy
