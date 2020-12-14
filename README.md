@@ -13,17 +13,21 @@ An attempt to create and understand the working of snapchat filters using facial
 ## To Run
 - Since the data set only contain image of size 96,96,1
 - Hence haar-cascade is used to first isolate the face and that is passed into model
-- The model detects the landmarks and passes it to ```filter.py``` which will then apply the filter to the image
+- The model detects the landmarks and passes it to ``filter.py`` which will then apply the filter to the image
 - Then image processing is done to re-adjust the image in the vedio
-- ```vedio.py``` runs the network on vedio
+- ``vedio.py`` runs the network on vedio
 
 
 ## Output
+
 Vedio Output
+============
 - ![output](output/output.gif)
+
 
 ## Technologies
 ![opencv](opencv.png) ![tf-keras](tf-keras.jpeg)
+
 ## TODO
 - Add filters for mouth also! (using the lip tracking mechanism!)
 - Make a youtube vedio for it!
