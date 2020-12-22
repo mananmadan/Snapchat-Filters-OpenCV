@@ -2,8 +2,9 @@ import os
 import tensorflow as tf
 import numpy as np
 import cv2
+import time
 from matplotlib import pyplot as plt
-from filter import filtering, apply
+from filter import apply
 
 # supress tensorflow warning
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -33,7 +34,6 @@ while True:
     # Process the frame
     ret, frame = vid.read()
     img = frame  # 480 640 3
-    default_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
     faces_img = np.copy(gray_img)
@@ -43,6 +43,7 @@ while True:
     if len(faces) == 0:
         print("No faces found!")
 
+    start = time.time()
     for i, (x, y, w, h) in enumerate(faces):
         # isolate the face
         just_face = cv2.resize(gray_img[y:y+h, x:x+w], dimensions)
@@ -53,10 +54,8 @@ while True:
 
         # apply all the filters you want
         # do we really need to call filtering twice?
-        filtered_points = filtering(label_point, "glasses")
-        just_color_face = apply(just_color_face, filtered_points, "glasses")
-        filtered_points = filtering(label_point, "moustache")
-        just_color_face = apply(just_color_face, filtered_points, "moustache")
+        types = "glasses and moustache"
+        just_color_face = apply(just_color_face,label_point,types)
 
         # resize and fit back the isolated face in original image
         just_color_face = cv2.resize(just_color_face, (h, w))
@@ -64,6 +63,10 @@ while True:
 
         # Display the resulting frame
         cv2.imshow('frame', img)
+
+        endtime = time.time()
+        ## it takes 0.1 second
+        print("Processed Frame in :",endtime - start)
 
         # the 'q' button is set as the
         # quitting button you may use any

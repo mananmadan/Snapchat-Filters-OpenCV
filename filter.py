@@ -1,4 +1,5 @@
 import cv2
+import time
 
 # load the filters
 glasses = cv2.imread('filters/glasses.jpg')
@@ -13,23 +14,13 @@ def make_dict(label_points):
     for i in range(0,len(name_list)):
       mydict[name_list[i]] = label_points[0][i]
   
-##get the label points you want for each of the cases
-def filtering(label_points,types):
-    make_dict(label_points)
-    if types == 'glasses':
-      return [(mydict['left_eyebrow_outer_end_x'],mydict['left_eyebrow_outer_end_y']),(mydict['right_eyebrow_outer_end_x'],mydict['right_eyebrow_outer_end_y'])]
-        
-   if types == 'moustache':
-        ## we want the hat to be place in the region at the height of eyebrows + 10
-        ll = [label_points[0][20],label_points[0][21]]
-        return ll
-
 ## apply filters to the image using crazy maths!
 def apply(img,points,types):
-    if types == 'glasses':
+    make_dict(points)
+    if 'glasses' in types.split(" "):
         global glasses
-        x1,y1 = points[0]
-        x2,y2 = points[1]
+        x1,y1 = (mydict['left_eyebrow_outer_end_x'],mydict['left_eyebrow_outer_end_y'])
+        x2,y2 = (mydict['right_eyebrow_outer_end_x'],mydict['right_eyebrow_outer_end_y'])
         x1 = int(x1)
         x2 = int(x2)
         y = int((y1+y2)/2)
@@ -41,9 +32,9 @@ def apply(img,points,types):
             if r<170 or g<170 or b<170:
               img[y+i,j+(x2-5),:] = r,g,b
 
-    if types == 'moustache':
-        x = int(points[0])
-        y = int(points[1])
+    if 'moustache' in types.split(" "):
+        x = int(mydict['nose_tip_x'])
+        y = int(mydict['nose_tip_y'])
         for i in range(0,min(29,96-y)):
             for j in range(0,90):
                b,g,r = moustache[i][j][:]
