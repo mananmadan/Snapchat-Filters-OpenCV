@@ -1,7 +1,7 @@
 import cv2
 
 # load the filters
-glasses = cv2.imread('filters/glasses-2.jpg')
+glasses = cv2.imread('filters/glasses.jpg')
 moustache = cv2.imread('filters/moustache-2.jpg')
 
 # dictionary for the landmarks

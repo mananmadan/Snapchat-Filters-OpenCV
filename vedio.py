@@ -28,7 +28,7 @@ def detect_points(face_img):
 # Load haarcascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 dimensions = (96, 96)
-types = "moustache"
+
 # declare vid object
 vid = cv2.VideoCapture(0)
 while True:
