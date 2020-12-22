@@ -3,7 +3,7 @@ import time
 import numpy as np
 
 # load the filters
-glasses = cv2.imread('filters/glasses.jpg')
+glasses = cv2.imread('filters/glasses-2.jpg')
 moustache = cv2.imread('filters/moustache-2.jpg')
 
 # dictionary for the landmarks
@@ -28,10 +28,11 @@ def apply(img,points,types):
         y = y-5
         temp = cv2.resize(glasses,((x1-x2)+10,30))
         img[y:y+temp.shape[0],x2-5:temp.shape[1]+(x2-5),:] = np.where(temp<170,temp,img[y:y+temp.shape[0],x2-5:temp.shape[1]+(x2-5),:])
-        
+
     if 'moustache' in types.split(" "):
         x = int(mydict['nose_tip_x'])
         y = int(mydict['nose_tip_y'])
+
         for i in range(0,min(29,96-y)):
             for j in range(0,90):
                b,g,r = moustache[i][j][:]

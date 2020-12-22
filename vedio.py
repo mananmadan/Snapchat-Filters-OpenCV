@@ -36,8 +36,6 @@ while True:
     img = frame  # 480 640 3
     gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray_img, 1.3, 5)
-    faces_img = np.copy(gray_img)
-    plt.rcParams["axes.grid"] = False
 
     # No face found
     if len(faces) == 0:
@@ -53,7 +51,6 @@ while True:
         label_point = detect_points(just_face)
 
         # apply all the filters you want
-        # do we really need to call filtering twice?
         types = "glasses"
         just_color_face = apply(just_color_face,label_point,types)
 
