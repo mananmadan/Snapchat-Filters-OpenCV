@@ -54,7 +54,7 @@ while True:
 
         # apply all the filters you want
         # do we really need to call filtering twice?
-        types = "glasses and moustache"
+        types = "glasses"
         just_color_face = apply(just_color_face,label_point,types)
 
         # resize and fit back the isolated face in original image
