@@ -19,9 +19,7 @@ def detect_points(face_img):
     face_array = np.array(face_img)
     x_test = np.expand_dims(face_array, axis=0)
     x_test = np.expand_dims(x_test, axis=3)
-
     y_test = model.predict(x_test)
-
     return y_test
 
 
