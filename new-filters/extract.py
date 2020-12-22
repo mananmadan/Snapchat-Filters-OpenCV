@@ -1,6 +1,6 @@
 ## get-hat
 import cv2
-img_hat = cv2.imread('glasses-2.jpg')
+img_hat = cv2.imread('glasses-3.jpg')
 #img_hat = cv2.resize(img_hat , (480,640))
 img2 = img_hat.copy()
 min_x = 3000
