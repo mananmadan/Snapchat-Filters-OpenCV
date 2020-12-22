@@ -52,6 +52,7 @@ while True:
         label_point = detect_points(just_face)
 
         # apply all the filters you want
+        # do we really need to call filtering twice?
         filtered_points = filtering(label_point, "glasses")
         just_color_face = apply(just_color_face, filtered_points, "glasses")
         filtered_points = filtering(label_point, "moustache")
