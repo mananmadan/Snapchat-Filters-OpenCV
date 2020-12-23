@@ -29,6 +29,12 @@ Vedio Output
 ![opencv](opencv.png) ![tf-keras](tf-keras.jpeg)
 
 ## TODO
+- Time everything and see what 
+- Use Numpy Operation Instead of Loops for applying filters on the image
+- Write an argument parser for command line
 - Add filters for mouth also! (using the lip tracking mechanism!)
-- Make a youtube vedio for it!
-- Make a flask web app
+- Train a face detection algorithm instead of haar-cascades
+   - If haar-cascades is taking significant time
+- If calculation label points takes time , then save the points for a particular person and only detect if a new person is found
+- Make a youtube vedio and blog for it!
+- Implement Optical Flow stuff to give a 3D View? 
