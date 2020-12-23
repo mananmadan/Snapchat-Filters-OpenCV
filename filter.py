@@ -27,6 +27,8 @@ def apply(img,points,types):
         y = int((y1+y2)/2)
         y = y-5
         temp = cv2.resize(glasses,((x1-x2)+10,30))
+
+        ## apply glasses filter
         img[y:y+temp.shape[0],x2-5:temp.shape[1]+(x2-5),:] = np.where(temp<170,temp,img[y:y+temp.shape[0],x2-5:temp.shape[1]+(x2-5),:])
 
     if 'moustache' in types.split(" "):
