@@ -51,7 +51,7 @@ while True:
         label_point = detect_points(just_face)
 
         # apply all the filters you want
-        types = "glasses"
+        types = "glasses and moustache"
         just_color_face = apply(just_color_face,label_point,types)
 
         # resize and fit back the isolated face in original image
